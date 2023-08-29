@@ -11,15 +11,16 @@ class Square:
         Args:
             size (int): The size of the new square.
         """
-        self.size = size
+        self.size = size  # Use the property setter to validate and set the size
 
     @property
     def size(self):
-        """Get/set the current size of the square."""
-        return (self.__size)
+        """Get the current size of the square."""
+        return self.__size
 
     @size.setter
     def size(self, value):
+        """Set the size of the square."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
@@ -28,5 +29,14 @@ class Square:
 
     def area(self):
         """Return the current area of the square."""
-        return (self.__size * self.__size)
+        return self.__size * self.__size
+
+# Create an instance of the Square class and test it
+if __name__ == "__main__":
+    try:
+        square = Square(5)
+        print("Square size:", square.size)
+        print("Square area:", square.area())
+    except (TypeError, ValueError) as e:
+        print("Error:", e)
 

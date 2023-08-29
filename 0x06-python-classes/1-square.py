@@ -9,7 +9,11 @@ class Square:
         """Initialize a new Square.
 
         Args:
-            size (int): The size of the new square.
+            size (int): The size of the new square. Must be a non-negative integer.
         """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
         self.__size = size
 
