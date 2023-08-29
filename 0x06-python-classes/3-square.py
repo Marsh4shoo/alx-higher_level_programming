@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Define a class Square."""
 
 
@@ -19,14 +19,5 @@ class Square:
 
     def area(self):
         """Return the current area of the square."""
-        return self.__size * self.__size
-
-# Example usage
-if __name__ == "__main__":
-    try:
-        size_input = int(input("Enter the size of the square: "))
-        square = Square(size_input)
-        print("Area of the square:", square.area())
-    except ValueError:
-        print("Invalid input. Size must be a non-negative integer.")
+        return (self.__size * self.__size)
 
