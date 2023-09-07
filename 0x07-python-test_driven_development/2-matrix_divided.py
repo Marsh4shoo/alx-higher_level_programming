@@ -1,4 +1,13 @@
-lists of ints or floats.
+#!/usr/bin/python3
+# 2-matrix_divided.py
+"""Defines a matrix division function."""
+
+
+def matrix_divided(matrix, div):
+    """Divide all elements of a matrix.
+
+    Args:
+        matrix (list): A list of lists of ints or floats.
         div (int/float): The divisor.
     Raises:
         TypeError: If the matrix contains non-numbers.
@@ -25,4 +34,5 @@ lists of ints or floats.
         raise ZeroDivisionError("division by zero")
 
     return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])
+
 
