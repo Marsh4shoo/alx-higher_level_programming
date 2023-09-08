@@ -4,11 +4,11 @@
 How to Use 100-matrix_mul.py
 ============================
 
-This module defines a matrix multiplication function ``matrix_mul(m_a, m_b)``.
+Module defines a matrix multiplication function ``matrix_mul(m_a, m_b)``.
 
 Usage
 =====
-``matrix_mul(...)`` returns a new matrix representing the multiplication of
+``matrix_mul(...)`` returns New matrix representing the multiplication of
 ``m_a`` by ``m_b``.
 
 ::
@@ -32,7 +32,7 @@ Usage
     >>> print(matrix_mul(m_a, m_b))
     [[13, 16]]
 
-The function also works with floating-point numbers.
+Function also works with floating-point numbers.
 
 ::
 
@@ -48,7 +48,7 @@ The function also works with floating-point numbers.
     >>> print(matrix_mul(m_a, m_b))
     [[34.69, 55.44000000000001], [-78.61, 29.018000000000008]]
 
-Integers and floats can be combined.
+Integers and floats Will be combined.
 
 ::
 
@@ -65,7 +65,7 @@ Integers and floats can be combined.
     >>> print(matrix_mul(m_a, m_b))
     [[73.03999999999999, 84.5, 95.4], [166.58800000000002, 195.8, 223.74]]
 
-A minimum of two arguments must be provided. Otherwise, a TypeError is raised.
+Minimum of two arguments Must be provided. Otherwise, a TypeError is raised.
 
 ::
 
@@ -84,8 +84,8 @@ A minimum of two arguments must be provided. Otherwise, a TypeError is raised.
 ValueErrors
 ===========
 
-If two matrices cannot be multiplied (ie. the row count of ``m_a`` is not
-equal to the column count in ``m_b``), a ValueError is raised.
+When two matrices cannot be multiplied (ie. the row count of ``m_a`` is not
+equal to column count in ``m_b``), a ValueError is raised.
 
 ::
 
@@ -103,7 +103,7 @@ equal to the column count in ``m_b``), a ValueError is raised.
     ValueError: m_a and m_b can't be multiplied
 
 
-The parameters ``m_a`` and ``m_b`` cannot be empty. Otherwise, a ValueError
+Parameters ``m_a`` and ``m_b`` cannot be empty. Otherwise, a ValueError
 is raised.
 
 ::
@@ -127,7 +127,7 @@ is raised.
 Invalid Matrices
 ================
 
-The parameters ``m_a`` and ``m_b`` must be lists. If either parameter is
+Parameters ``m_a`` and ``m_b`` must be lists. If either parameter is
 not a list, a TypeError is raised.
 
 ::
@@ -154,7 +154,7 @@ not a list, a TypeError is raised.
     Traceback (most recent call last):
     TypeError: m_a must be a list
 
-Not just any list - they *must* be lists of lists!
+Not just Any list - they *must* be lists of lists!
 
 ::
 
@@ -174,7 +174,7 @@ Not just any list - they *must* be lists of lists!
     Traceback (most recent call last):
     TypeError: m_a must be a list of lists
 
-And not just any list of lists - they *must* be lists of lists containing
+And not just Any list of lists - they *must* be lists of lists containing
 integers or floats!
 
 ::
@@ -195,7 +195,7 @@ integers or floats!
     Traceback (most recent call last):
     TypeError: m_a should contain only integers or floats
 
-Finally, the length of all rows in matrices ``m_a`` and ``m_b`` should be
+Finally, length of all rows in matrices ``m_a`` and ``m_b`` should be
 equivalent. Otherwise, a TypeError is raised.
 
 ::

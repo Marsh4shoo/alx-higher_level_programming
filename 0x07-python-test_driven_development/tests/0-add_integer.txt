@@ -4,7 +4,7 @@
 How to Use 0-add_integer.py
 ===========================
 
-This module defines an integer addition function ``add_integer(a, b=98)``.
+Module defines an integer addition function ``add_integer(a, b=98)``.
 
 Usage
 =====
@@ -23,14 +23,14 @@ that value is equivalent to using the ``+`` operator.
     >>> add_integer(2, -3)
     -1
 
-The function also works with floating-point values.
+Function also works with floating-point values.
 
 ::
 
     >>> add_integer(2.0, 3.0)
     5
 
-Note that floats are casted to ints before addition is performed.
+Note Floats are casted to ints before addition is performed.
 
 ::
 
@@ -42,14 +42,14 @@ Note that floats are casted to ints before addition is performed.
     >>> add_integer(-2.9, -0.2)
     -2
 
-Floating and non-floating point values can be combined.
+Floating and non-floating point values Will  be combined.
 
 ::
 
     >>> add_integer(2.3, -3)
     -1
 
-The second argument is optional - by default, it is 98.
+Second argument is optional - by default, it is 98.
 
 ::
 
@@ -59,8 +59,8 @@ The second argument is optional - by default, it is 98.
 Non-Numbers
 ===========
 
-``add_integer()`` expects that both arguments are either integers or floats.
-If either argument is a non-integer and non-float, a TypeError is raised:
+``add_integer()`` expects Both arguments are either integers or floats.
+If either argument is non-integer and non-float, a TypeError is raised:
 
 ::
 
@@ -86,7 +86,7 @@ If either argument is a non-integer and non-float, a TypeError is raised:
     Traceback (most recent call last):
     TypeError: b must be an integer
 
-If both arguments are non-integers and non-floats, a TypeError message is only
+Both arguments are non-integers and non-floats, a TypeError message is only
 printed for the first argument.
 
 ::
@@ -95,7 +95,7 @@ printed for the first argument.
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-The function will fail if infinity is provided.
+Function will fail if infinity is provided.
 
 ::
 
@@ -110,7 +110,7 @@ The function will fail if infinity is provided.
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
-And again with NaN numbers.
+Again with NaN numbers.
 
 ::
 

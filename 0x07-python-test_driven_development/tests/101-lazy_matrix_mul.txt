@@ -5,13 +5,13 @@
 How to Use 101-lazy_matrix_mul.py
 =================================
 
-This module defines a matrix multiplication function
+Module defines a matrix multiplication function
 ``lazy_matrix_mul(m_a, m_b)``.
 
 Usage
 =====
 
-``lazy_matrix_mul(...)`` returns a new matrix representing the multiplication
+``lazy_matrix_mul(...)`` returns New matrix representing the multiplication
 of ``m_a`` by ``m_b``.
 
 ::
@@ -36,7 +36,7 @@ of ``m_a`` by ``m_b``.
     >>> print(lazy_matrix_mul(m_a, m_b))
     [[13 16]]
 
-The function also works with floating-point numbers.
+Function also works with floating-point numbers.
 
 ::
 
@@ -53,7 +53,7 @@ The function also works with floating-point numbers.
     [[ 34.69   55.44 ]
      [-78.61   29.018]]
 
-A minimum of two arguments must be provided.
+Minimum of two arguments must be provided.
 
 ::
 
@@ -71,7 +71,7 @@ A minimum of two arguments must be provided.
 ValueErrors
 ===========
 
-If two matrices cannot be multiplied (ie. the row count of ``m_a`` is not
+When two matrices cannot be multiplied (ie. the row count of ``m_a`` is not
 equal to the column count in ``m_b``), a ValueError is raised.
 
 ::
@@ -90,7 +90,7 @@ equal to the column count in ``m_b``), a ValueError is raised.
     ValueError: shapes (2,2) and (3,2) not aligned: 2 (dim 1) != 3 (dim 0)
 
 
-The parameters ``m_a`` and ``m_b`` cannot be empty. Otherwise, a ValueError
+Parameters ``m_a`` and ``m_b`` cannot be empty. Otherwise, a ValueError
 is raised.
 
 ::
@@ -108,7 +108,7 @@ is raised.
 Invalid Matrices
 ================
 
-The parameters ``m_a`` and ``m_b`` must be lists. If either parameter is
+Parameters ``m_a`` and ``m_b`` must be lists. If either parameter is
 not a list, a ValueError is raised.
 
 ::
@@ -137,7 +137,7 @@ If either parameter is ``None``, a TypeError is raised.
     Traceback (most recent call last):
     TypeError: Object arrays are not currently supported
 
-Not just any list - they *must* be lists of lists! Otherwise, behavior is
+Not just Any list - they *must* be lists of lists! Otherwise, behavior is
 undefined.
 
 ::
@@ -156,7 +156,7 @@ undefined.
     >>> print(lazy_matrix_mul([1, 2], [3, 4]))
     11
 
-And not just any list of lists - they *must* be lists of lists containing
+And not just Any list of lists - they *must* be lists of lists containing
 integers or floats! Otherwise, a ValueError or TypeError is raised
 
 ::

@@ -4,12 +4,12 @@
 How to Use 4-print_square.py
 ============================
 
-This module defines a square-printing function ``print_square(size)``.
+Module defines a square-printing function ``print_square(size)``.
 
 Usage
 =====
 
-Squares are printed using the ``#`` character. The parameter ``size``
+Squares Will Be printed using the ``#`` character. The parameter ``size``
 represents the height and width of the square.
 
 ::
@@ -49,7 +49,7 @@ If ``size`` is zero, the function prints nothing.
 Invalid Sizes
 =============
 
-The parameter ``size`` must be an integer. Otherwise, a TypeError is raised.
+Parameter ``size`` must be an integer. Otherwise, a TypeError is raised.
 
 ::
 
@@ -85,7 +85,7 @@ Note that type-checking occurs before value-checking.
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-At least one argument must be provided.
+At least one argument Will be provided.
 
 ::
 
