@@ -1,6 +1,6 @@
-# Python - Test-driven development by Marshal Zvinoira 
+# Python - Test-driven development
 
-With this project, I was practicing test-driven development using `docstring`
+In this project, I started practicing test-driven development using `docstring`
 and `unittest` in Python.
 
 ## Tests :heavy_check_mark:
@@ -84,4 +84,34 @@ Prototypes for functions written in this project:
 * **5. Max integer - Unittest**
   * [tests/6-max_integer_test.py](./tests/6-max_integer_text.py): Python class/script
   that runs unittests for the function `def max_integer(list=[]):`
+  (provided by Holberton School).
+
+* **6. Matrix multiplication**
+  * [100-matrix_mul.py](./100-matrix_mul.py): Python function that multiplies two matrices.
+  * Returns a new matrix representing the multiplication of `m_a` by `m_b`.
+  * If either of `m_a` or `m_b` is empty (ie. `== []` or `== [[]]`), a
+  `ValueError` is raised with the message `m_a can't be empty` or `m_b can't
+  be empty`.
+  * If either of `m_a` or `m_b` is not a list, a `TypeError` is raised with
+  the message `m_a must be a list` or `m_b` must be a list.
+  * If either of `m_a` or `m_b` is not a list of lists, a `TypeError` is raised
+  with the message `m_a must be a list of lists` or `m_b must be a list of lists`.
+  * If either of `m_a` or `m_b` is not a list of lists of `int`s or `float`s, a
+  `TypeError` is raised with the message `m_a should contain only integers or
+  floats` or `m_b should contain only integers or floats`.
+  * If either of `m_a` or `m_b` contains rows of different lengths, a `TypeError`
+  is raised with the message `each row of m_a must should be of the same size` or
+  `each row of m_b must should be of the same size`.
+  * If `m_a` and `m_b` cannot be multiplied (ie. row size of `m_a` does not match
+  column size of `m_b`), a `ValueError` is raised with the message `m_a and m_b
+  can't be multiplied`.
+
+* **7. Lazy matrix multiplication**
+  * [101-lazy_matrix_mul.py](./101-lazy_matrix_mul.py): Python function that multiplies
+  two matrices using the module `NumPy`.
+  * Identical in function to [100-matrix_mul.py](./100-matrix_mul.py).
+
+* **8. CPython #3: Python Strings**
+  * [102-python.c](./102-python.c): C function that prints basic information about Python
+  string objects.
 
