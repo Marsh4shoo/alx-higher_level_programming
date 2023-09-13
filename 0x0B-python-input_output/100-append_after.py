@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""Defines a text file insertion function."""
+"""Defines Text file Insertion Function."""
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """Insert text after each line containing a given string in a file.
+    """Insert Text After each line Containing Given string in a file.
 
     Args:
-        filename (str): The name of the file.
-        search_string (str): The string to search for within the file.
-        new_string (str): The string to insert.
+        filename (str): The name Of the file.
+        search_string (str): String To Search For within the file.
+        new_string (str): String To insert.
     """
     text = ""
     with open(filename) as r:
