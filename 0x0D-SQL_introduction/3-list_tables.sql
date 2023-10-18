@@ -1,2 +1,2 @@
--- Lists all tables of a database on my MySQL server.
+-- MARSHAL ZVINOIRA'S MySQL server.
 SHOW TABLES;

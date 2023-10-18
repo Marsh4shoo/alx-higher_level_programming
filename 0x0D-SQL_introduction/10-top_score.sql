@@ -1,5 +1,4 @@
--- Lists all records of the table second_table.
--- Records are ordered by descending score.
+-- MARSHAL ZVINOIRA'S MYSQL - TMR
 SELECT `score`, `name`
 FROM `second_table`
 ORDER BY `score` DESC;
