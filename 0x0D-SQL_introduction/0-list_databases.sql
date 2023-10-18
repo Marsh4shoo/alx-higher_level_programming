@@ -1,1 +1,2 @@
- 0-list_databases.sql
+-- MARSHAL ZVINOIRA'S SQL - TMR
+SHOW DATABASES;l
