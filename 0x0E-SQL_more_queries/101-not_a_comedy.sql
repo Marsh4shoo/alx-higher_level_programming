@@ -1,5 +1,4 @@
--- MARSHAL ZVINOIRS LISTS ALL SHOWS without the genre Comedy in the database hbtn_0d_tvshows
--- USES A Satabase to list all rows not linked to one row
+-- USES A Satabase for tomorrow to list all rows not linked to one row
 SELECT title
 FROM tv_shows
 WHERE title NOT IN

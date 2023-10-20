@@ -1,5 +1,4 @@
--- MARSHAL ZVINOIRA CREATE database hbtn_0d_usa and the table states (in the database hbtn_0d_usa) on your MySQL server
--- CREATE A DATABASE
+-- CREATE A NEW DATABASE
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 -- use a database
 USE hbtn_0d_usa;
