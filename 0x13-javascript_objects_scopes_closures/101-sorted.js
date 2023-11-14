@@ -1,17 +1,19 @@
 #!/usr/bin/node
-const dict = require('./101-data').dict;
+const dataObject = require('./my-data').dataObject;
 
-const totalist = Object.entries(dict);
-const vals = Object.values(dict);
-const valsUniq = [...new Set(vals)];
-const newDict = {};
-for (const j in valsUniq) {
-  const list = [];
-  for (const k in totalist) {
-    if (totalist[k][1] === valsUniq[j]) {
-      list.unshift(totalist[k][0]);
+const entriesList = Object.entries(dataObject);
+const values = Object.values(dataObject);
+const uniqueValues = [...new Set(values)];
+const transformedData = {};
+
+for (const value of uniqueValues) {
+  const keyList = [];
+  for (const entry of entriesList) {
+    if (entry[1] === value) {
+      keyList.unshift(entry[0]);
     }
   }
-  newDict[valsUniq[j]] = list;
+  transformedData[value] = keyList;
 }
-console.log(newDict);
+
+console.log(transformedData);

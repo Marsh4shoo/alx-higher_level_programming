@@ -1,10 +1,19 @@
 #!/usr/bin/node
-exports.nbOccurences = function (list, searchElement) {
-  let nOccurrences = 0;
-  for (let i = 0; i < list.length; i++) {
-    if (searchElement === list[i]) {
-      nOccurrences++;
+const ParentSquare = require('./my-square');
+
+class CustomSquare extends ParentSquare {
+  displayCharPrint (character) {
+    if (character === undefined) {
+      character = 'X';
+    }
+    for (let row = 0; row < this.height; row++) {
+      let rowString = '';
+      for (let col = 0; col < this.width; col++) {
+        rowString += character;
+      }
+      console.log(rowString);
     }
   }
-  return nOccurrences;
-};
+}
+
+module.exports = CustomSquare;

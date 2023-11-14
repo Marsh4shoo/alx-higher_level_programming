@@ -1,11 +1,32 @@
 #!/usr/bin/node
-const Rectangle = require('./4-rectangle');
+class CustomShape {
+  constructor (widthVal, heightVal) {
+    if ((widthVal > 0) && (heightVal > 0)) {
+      this.width = widthVal;
+      this.height = heightVal;
+    }
+  }
 
-class Square extends Rectangle {
-  constructor (size) {
-    super(size, size);
+  render () {
+    for (let row = 0; row < this.height; row++) {
+      let rowString = '';
+      for (let col = 0; col < this.width; col++) {
+        rowString += 'X';
+      }
+      console.log(rowString);
+    }
+  }
+
+  rotateShape () {
+    const temp = this.width;
+    this.width = this.height;
+    this.height = temp;
+  }
+
+  scaleUp () {
+    this.width *= 2;
+    this.height *= 2;
   }
 }
 
-module.exports = Square;
-
+module.exports = CustomShape;

@@ -1,21 +1,21 @@
 #!/usr/bin/node
-class Rectangle {
-  constructor (w, h) {
-    if ((w > 0) && (h > 0)) {
-      this.width = w;
-      this.height = h;
+class CustomRectangle {
+  constructor (widthValue, heightValue) {
+    if ((widthValue > 0) && (heightValue > 0)) {
+      this.width = widthValue;
+      this.height = heightValue;
     }
   }
 
-  print () {
-    for (let i = 0; i < this.height; i++) {
-      let s = '';
-      for (let j = 0; j < this.width; j++) {
-        s += 'X';
+  drawRectangle () {
+    for (let row = 0; row < this.height; row++) {
+      let rowString = '';
+      for (let col = 0; col < this.width; col++) {
+        rowString += 'X';
       }
-      console.log(s);
+      console.log(rowString);
     }
   }
 }
 
-module.exports = Rectangle;
+module.exports = CustomRectangle;
