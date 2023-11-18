@@ -1,7 +1,7 @@
-#!/usr/bin/node
-let counter = 0;
+let count = 0;
 
-exports.logIncrement = function (value) {
-  console.log(counter + ': ' + value);
-  counter++;
+exports.printLog = function (item) {
+  console.log(count + ': ' + item);
+  count++;
 };
+

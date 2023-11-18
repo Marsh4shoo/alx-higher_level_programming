@@ -1,4 +1,10 @@
 #!/usr/bin/node
-const dataList = require('./my-data.js').dataList;
-console.log(dataList);
-console.log(dataList.map((element, idx) => element * idx));
+const originalList = require('./100-data').list;
+
+const multipliedList = originalList.map(function (number, index) {
+  return number * index;
+});
+
+console.log("Original List:", originalList);
+console.log("Multiplied List:", multipliedList);
+

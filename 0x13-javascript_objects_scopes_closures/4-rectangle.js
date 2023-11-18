@@ -1,32 +1,37 @@
 #!/usr/bin/node
-class CustomShape {
-  constructor (widthVal, heightVal) {
-    if ((widthVal > 0) && (heightVal > 0)) {
-      this.width = widthVal;
-      this.height = heightVal;
+class CustomRectangle {
+  constructor(width, height) {
+    if (width > 0 && height > 0) {
+      this.width = width;
+      this.height = height;
     }
   }
 
-  render () {
-    for (let row = 0; row < this.height; row++) {
-      let rowString = '';
-      for (let col = 0; col < this.width; col++) {
-        rowString += 'X';
+  print() {
+    if (!this.width || !this.height) return;
+
+    for (let i = 0; i < this.height; i++) {
+      let line = '';
+      for (let j = 0; j < this.width; j++) {
+        line += 'X';
       }
-      console.log(rowString);
+      console.log(line);
     }
   }
 
-  rotateShape () {
-    const temp = this.width;
-    this.width = this.height;
-    this.height = temp;
+  rotate() {
+    if (!this.width || !this.height) return;
+    
+    [this.width, this.height] = [this.height, this.width];
   }
 
-  scaleUp () {
+  double() {
+    if (!this.width || !this.height) return;
+
     this.width *= 2;
     this.height *= 2;
   }
 }
 
-module.exports = CustomShape;
+module.exports = CustomRectangle;
+

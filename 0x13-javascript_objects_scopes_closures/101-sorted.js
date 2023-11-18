@@ -1,19 +1,12 @@
 #!/usr/bin/node
-const dataObject = require('./my-data').dataObject;
+const dict = require('./101-data').dict;
+const newDict = {};
 
-const entriesList = Object.entries(dataObject);
-const values = Object.values(dataObject);
-const uniqueValues = [...new Set(values)];
-const transformedData = {};
-
-for (const value of uniqueValues) {
-  const keyList = [];
-  for (const entry of entriesList) {
-    if (entry[1] === value) {
-      keyList.unshift(entry[0]);
-    }
+Object.keys(dict).map(function (key, index) {
+  if (newDict[dict[key]] === undefined) {
+    newDict[dict[key]] = [];
   }
-  transformedData[value] = keyList;
-}
+  newDict[dict[key]].push(key);
+});
 
-console.log(transformedData);
+console.log(newDict);

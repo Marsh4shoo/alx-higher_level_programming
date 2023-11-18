@@ -1,13 +1,15 @@
-#!/usr/bin/node
-exports.reverseList = function (array) {
-  let lastIndex = array.length - 1;
-  let firstIndex = 0;
-  while ((lastIndex - firstIndex) > 0) {
-    const temp = array[lastIndex];
-    array[lastIndex] = array[firstIndex];
-    array[firstIndex] = temp;
-    firstIndex++;
-    lastIndex--;
+exports.reverseList = function (arr) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start < end) {
+    const temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
   }
-  return array;
+
+  return arr;
 };
+
