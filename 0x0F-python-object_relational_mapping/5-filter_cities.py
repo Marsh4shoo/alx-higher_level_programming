@@ -1,19 +1,32 @@
 #!/usr/bin/python3
-"""  lists all states from the database hbtn_0e_0_usa """
-import MySQLdb
+"""
+Retrieves and lists all cities of a specific state from the database
+"""
 import sys
+import MySQLdb
 
+if __name__ == '__main__':
+    if len(sys.argv) != 5:
+        print("Usage: python3 script.py <username> <password> <database> <state_name>")
+        sys.exit(1)
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
-    cur = db.cursor()
-    cur.execute("""SELECT cities.name FROM
-                cities INNER JOIN states ON states.id=cities.state_id
-                WHERE states.name=%s""", (sys.argv[4],))
-    rows = cur.fetchall()
-    tmp = list(row[0] for row in rows)
-    print(*tmp, sep=", ")
-    cur.close()
-    db.close()
+    try:
+        db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                             db=sys.argv[3], port=3306)
+
+        cur = db.cursor()
+        state_name = sys.argv[4]
+        query = f"SELECT cities.id, cities.name, states.name " \
+                f"FROM cities JOIN states ON cities.state_id = states.id " \
+                f"WHERE states.name = '{state_name}';"
+        cur.execute(query)
+        cities = cur.fetchall()
+
+        city_names = [city[1] for city in cities]
+        print(", ".join(city_names))
+
+        db.close()
+    except MySQLdb.Error as e:
+        print(f"Error accessing the database: {e}")
+        sys.exit(1)
 

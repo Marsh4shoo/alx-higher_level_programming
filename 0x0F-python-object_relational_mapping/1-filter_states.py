@@ -1,18 +1,41 @@
 #!/usr/bin/python3
-"""  lists all states from the database hbtn_0e_0_usa """
-import MySQLdb
+"""
+Retrieves and displays states with names starting with 'N'
+from a specified database.
+"""
 import sys
+import MySQLdb
 
+def fetch_states_starting_with_N(username, password, database_name):
+    try:
+        # Connect to the database
+        db = MySQLdb.connect(user=username, passwd=password,
+                             db=database_name, port=3306)
+        cur = db.cursor()
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
-    cur = db.cursor()
-    cur.execute("""SELECT * FROM states WHERE name
-                LIKE BINARY 'N%' ORDER BY states.id""")
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
-    cur.close()
-    db.close()
+        # Fetch states starting with 'N'
+        query = "SELECT * FROM states WHERE name LIKE 'N%';"
+        cur.execute(query)
+        states = cur.fetchall()
+
+        # Display states
+        for state in states:
+            print(state)
+
+        # Close database connection
+        db.close()
+    except MySQLdb.Error as e:
+        print(f"Error accessing the database: {e}")
+        sys.exit(1)
+
+if __name__ == '__main__':
+    if len(sys.argv) != 4:
+        print("Usage: python3 script.py <username> <password> <database>")
+        sys.exit(1)
+
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database_name = sys.argv[3]
+
+    fetch_states_starting_with_N(username, password, database_name)
 

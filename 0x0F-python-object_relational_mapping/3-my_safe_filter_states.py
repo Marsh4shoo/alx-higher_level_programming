@@ -1,18 +1,30 @@
 #!/usr/bin/python3
-"""  lists all states from the database hbtn_0e_0_usa """
-import MySQLdb
+"""
+Displays values in the states table of hbtn_0e_0_usa where name matches the argument.
+This script is secure from MySQL injections.
+"""
 import sys
+import MySQLdb
 
+if __name__ == '__main__':
+    if len(sys.argv) != 5:
+        print("Usage: python3 script.py <username> <password> <database> <state_name>")
+        sys.exit(1)
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
-    cur = db.cursor()
-    match = sys.argv[4]
-    cur.execute("SELECT * FROM states WHERE name LIKE %s", (match, ))
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
-    cur.close()
-    db.close()
+    try:
+        db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                             db=sys.argv[3], port=3306)
+
+        cur = db.cursor()
+        query = "SELECT * FROM states WHERE name = %s;"
+        cur.execute(query, (sys.argv[4],))
+        states = cur.fetchall()
+
+        for state in states:
+            print(state)
+
+        db.close()
+    except MySQLdb.Error as e:
+        print(f"Error accessing the database: {e}")
+        sys.exit(1)
 

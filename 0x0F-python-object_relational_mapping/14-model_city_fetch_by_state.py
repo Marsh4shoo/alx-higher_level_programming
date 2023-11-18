@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """
-Retrieves and displays the first State object from the database hbtn_0e_6_usa
+Fetches city-state pairs and displays them
+from the database hbtn_0e_6_usa
 """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
+from model_city import City
 
-def display_first_state(username, password, database_name):
+def fetch_city_state_pairs(username, password, database_name):
     try:
         engine = create_engine(
             f'mysql+mysqldb://{username}:{password}@localhost/{database_name}',
@@ -16,12 +18,11 @@ def display_first_state(username, password, database_name):
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        # Retrieve and display the first State object
-        first_state = session.query(State).order_by(State.id).first()
-        if first_state:
-            print(f"{first_state.id}: {first_state.name}")
-        else:
-            print("Nothing")
+        city_state_pairs = session.query(City, State).filter(City.state_id == State.id)\
+            .order_by(City.id).all()
+
+        for city, state in city_state_pairs:
+            print(f"{state.name}: ({city.id}) {city.name}")
 
         session.close()
     except Exception as e:
@@ -37,5 +38,5 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database_name = sys.argv[3]
 
-    display_first_state(username, password, database_name)
+    fetch_city_state_pairs(username, password, database_name)
 

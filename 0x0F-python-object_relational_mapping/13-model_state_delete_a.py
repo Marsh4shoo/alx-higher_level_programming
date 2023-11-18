@@ -1,19 +1,44 @@
 #!/usr/bin/python3
-""" prints the State object with the name passed as argument from the database
+"""
+Deletes State objects with names containing the letter 'a'
+from the database hbtn_0e_6_usa
 """
 import sys
-from model_state import Base, State
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
 
+def delete_states_with_letter_a(username, password, database_name):
+    try:
+        engine = create_engine(
+            f'mysql+mysqldb://{username}:{password}@localhost/{database_name}',
+            pool_pre_ping=True
+        )
+        Session = sessionmaker(bind=engine)
+        session = Session()
+
+        # Query for states with names containing 'a'
+        states_to_delete = session.query(State).filter(State.name.ilike('%a%')).all()
+
+        # Delete the retrieved states
+        for state in states_to_delete:
+            session.delete(state)
+
+        session.commit()
+        session.close()
+        print("Deletion complete")
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    for instance in session.query(State).filter(State.name.like('%a%')):
-        session.delete(instance)
-    session.commit()
+    if len(sys.argv) != 4:
+        print("Usage: python3 script.py <username> <password> <database>")
+        sys.exit(1)
+
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database_name = sys.argv[3]
+
+    delete_states_with_letter_a(username, password, database_name)
 
