@@ -1,13 +1,20 @@
 #!/bin/bash
 
-# Check if a URL is provided as an argument
-if [ -z "$1" ]; then
-    echo "Please provide a URL"
+# Check if URL is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <URL>"
     exit 1
 fi
 
-# Retrieve the Content-Length header from the response headers
-content_length=$(curl -s -I "$1" | grep -i "Content-Length" | awk '{print $2}')
+url=$1
 
-# Display the size of the response body in bytes
-echo "$content_length"
+# Sending a GET request to the provided URL using curl and retrieving the body size in bytes
+body_size=$(curl -sI "$url" | awk '/Content-Length/ {print $2}' | tr -d '\r')
+
+if [ -z "$body_size" ]; then
+    echo "Unable to retrieve content size for $url"
+    exit 1
+fi
+
+echo "$body_size"
+
