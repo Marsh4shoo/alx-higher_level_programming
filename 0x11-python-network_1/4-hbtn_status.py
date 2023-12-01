@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-"""
-Python script that fetches an URL with requests package
-"""
-import requests
-
+import urllib.request
+import urllib.error
+import sys
 
 if __name__ == "__main__":
-    r = requests.get('https://intranet.hbtn.io/status')
-    t = r.text
-    print('Body response:\n\t- type: {}\n\t- content: {}'.format(type(t), t))
+    url = sys.argv[1]
+
+    try:
+        with urllib.request.urlopen(url) as response:
+            content = response.read().decode('utf-8')
+            print(content)
+    except urllib.error.HTTPError as e:
+        print(f"Error code: {e.code}")
+
